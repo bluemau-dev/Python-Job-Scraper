@@ -3,11 +3,9 @@ from bs4 import BeautifulSoup
 
 # Type: String
 url = "https://books.toscrape.com/"
-
 #Type: Request, takes in url as argument
 response = requests.get(url)
-
-#
+#class object
 soup = BeautifulSoup(response.text, 'html.parser') #response.text is a string
 
 # List of Books
@@ -21,7 +19,7 @@ for book in books_boxes:
 def printFiveBooks():
     for x in books[:5]:
         print(x)
-
+    print(type(soup))
 
 def printRequest():
     try: 
@@ -35,6 +33,3 @@ def printRequest():
         print("Request failed: ", e)
 
 printFiveBooks()
-
-#<li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-#<h3>
